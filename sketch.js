@@ -1,37 +1,77 @@
-
-let t = 0; // time variable
-
+let t = 0;
+let circles = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
-  fill(40, 200, 40);
   rectMode(CENTER);
+  for(let i = 0; i < 150; i++){
+    circles.push(new Shake());
+    }
 }
 
 function draw() {
-  background(10, 10); // translucent background (creates trails)
-  fill(244, 122, 158);
+  background(0, 15); 
+  if(keyIsPressed === true){
+    background(64,64,64);
+  }
+  shakingCircle = fill(0,0,0);
+  for (let i = 0;i < circles.length; i++){
+    circles[i].move();
+    circles[i].display();
+    }
+  lightSquare = fill(128, 184, 255);
+  if(keyIsPressed === true){
+    //erase();
+    lightSquare = fill(64,64,64);
+
+  }
   rect(mouseX, height / 2, mouseY / 2 + 10, mouseY / 2 + 10);
-  fill(237, 34, 93);
+  darkerSquare = fill(9, 82,141);
+  if(keyIsPressed === true){
+    //erase();
+    darkerSquare = fill(64,64,64);
+  }
   let inverseX = width - mouseX;
   let inverseY = height - mouseY;
-  rect(inverseX, height / 2, inverseY / 2 + 10, inverseY / 2 + 10);
+  rect(inverseX, height / 2, inverseY / 2 + 5, inverseY / 2 + 5);
+  
+  seaFill =  fill(9,100,180);
+  if(keyIsPressed === true){
+    seaFill = fill(64,64,64);
+  }
   
   for (let x = 0; x <= width; x = x + 30) {
     for (let y = 0; y <= height; y = y + 30) {
-      // starting point of each circle depends on mouse position
-      const xAngle = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
-      const yAngle = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
-      // and also varies based on the particle's location
+      
+      const xAngle = map(mouseX, 0, width, -10* PI, 8 * PI, true);
+      const yAngle = map(mouseY, 0, height, -10 * PI, 8 * PI, true);
+  
       const angle = xAngle * (x / width) + yAngle * (y / height);
 
-      // each particle moves in a circle
       const myX = x + 20 * cos(2 * PI * t + angle);
       const myY = y + 20 * sin(2 * PI * t + angle);
 
-      ellipse(myX, myY, 4);
+      ellipse(myX, myY, 7);
     }
   }
 
-  t = t + 0.007; // update time
+  t = t + 0.009; 
+}
+
+class Shake {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.diameter = random(40, 50);
+    this.speed = 1;
+  }
+
+  move() {
+    this.x += random(-this.speed, this.speed);
+    this.y += random(-this.speed, this.speed);
+  }
+
+  display() {
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+  }
 }
