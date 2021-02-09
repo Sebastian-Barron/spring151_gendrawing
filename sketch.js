@@ -4,6 +4,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
   rectMode(CENTER);
+  alert("I named this piece In The Mind because it reminds me of the calming and chaotics states of the mind. I chose to use more darker colors to help express a more calm state of being. The way the cirlces mimic the waves of water also help to calmness. I chose to allow the viewer to press any key to change the state from calm to chaotic. I express this by changing the color scheme and adding a more hyper and chaotic behavior to the circles on the page. ");
   for(let i = 0; i < 150; i++){
     circles.push(new Shake());
     }
