@@ -4,7 +4,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
   rectMode(CENTER);
-  alert("I named this piece In The Mind because it reminds me of the calming and chaotics states of the mind. I chose to use more darker colors to help express a more calm state of being. The way the cirlces mimic the waves of water also help to calmness. I chose to allow the viewer to press any key to change the state from calm to chaotic. Moving the mouse also causes the two squares in the middle to move around and cause the waves to become more still or more chaotic, depending on the speed at which the mouse is moved. I also expressed a more chaotic state by changing the color scheme and adding a more hyper and chaotic behavior to the circles on the page. ");
+  alert("I named this piece In The Mind because it reminds me of the calming and chaotics states of the mind. I chose to use more darker colors to help express a more calm state of being. The way the circles mimic the waves of water also help to show calmness. I chose to allow the viewer to press any key to change the state from calm to chaotic. Moving the mouse also causes the two squares in the middle to move around and cause the waves to become more still or more chaotic, depending on the speed at which the mouse is moved. I also expressed a more chaotic state by changing the color scheme and adding a more hyper and chaotic behavior to the circles on the page when any key is pressed. ");
   for(let i = 0; i < 150; i++){
     circles.push(new Shake());
     }
